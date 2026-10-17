@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { X, ChevronLeft, ChevronRight, ArrowUpRight, Github } from 'lucide-react';
 import Shot from './Shot';
+import Mockup from './Mockup';
 import { asset } from '@/data/portfolio';
 
 /* Side panel with full project details and screenshot gallery. */
@@ -43,14 +44,14 @@ export default function ProjectDrawer({ project: p, index, total, onClose, onPre
                 key={p.images[shot]}
                 src={asset(p.images[shot])}
                 alt={`${p.name} screenshot ${shot + 1}`}
-                label={p.name}
+                fallback={<Mockup slug={p.slug} name={p.name} />}
               />
             </div>
             {p.images.length > 1 && (
               <div className="gallery-thumbs">
                 {p.images.map((img, i) => (
                   <button key={img} className={i === shot ? 'on' : ''} onClick={() => setShot(i)} aria-label={`Show screenshot ${i + 1}`}>
-                    <Shot src={asset(img)} alt="" label={p.name} />
+                    <Shot src={asset(img)} alt="" fallback={<Mockup slug={p.slug} name={p.name} />} />
                   </button>
                 ))}
               </div>

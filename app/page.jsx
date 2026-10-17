@@ -1,5 +1,7 @@
 import Loader from '@/components/Loader';
 import Navbar from '@/components/Navbar';
+import SideRail from '@/components/SideRail';
+import DotField from '@/components/DotField';
 import Hero from '@/components/Hero';
 import Marquee from '@/components/Marquee';
 import About from '@/components/About';
@@ -11,14 +13,19 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Dock from '@/components/Dock';
 import CommandPalette from '@/components/CommandPalette';
-import Cursor from '@/components/Cursor';
 
 export default function Page() {
   return (
     <>
+      <div className="aurora" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </div>
+      <DotField />
       <Loader />
-      <Cursor />
       <Navbar />
+      <SideRail />
       <main>
         <Hero />
         <Marquee />

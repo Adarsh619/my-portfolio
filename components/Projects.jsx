@@ -5,6 +5,7 @@ import { useLenis } from 'lenis/react';
 import { PROJECTS, asset } from '@/data/portfolio';
 import { SectionHeading } from './ui';
 import Shot from './Shot';
+import Mockup from './Mockup';
 import ProjectDrawer from './ProjectDrawer';
 
 /* Card with 3D tilt that follows the pointer. */
@@ -26,7 +27,6 @@ function ProjectCard({ p, index, onOpen }) {
       className="pcard"
       role="button"
       tabIndex={0}
-      data-cursor="View"
       style={{ rotateX, rotateY, transformPerspective: 900 }}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -38,7 +38,11 @@ function ProjectCard({ p, index, onOpen }) {
       onKeyDown={(e) => { if (e.key === 'Enter') onOpen(index); }}
     >
       <div className="pcard-media">
-        <Shot src={asset(p.images[0])} alt={`${p.name} cover`} label={p.name} />
+        <Shot
+          src={asset(p.images[0])}
+          alt={`${p.name} cover`}
+          fallback={<Mockup slug={p.slug} name={p.name} />}
+        />
       </div>
       <div className="pcard-body">
         <div className="pcard-top">
@@ -59,7 +63,6 @@ export default function Projects() {
   const [active, setActive] = useState(null);
   const lenis = useLenis();
   const total = PROJECTS.length;
-  const openedAt = useRef(null);
 
   // Lock page scroll while the panel is open; keyboard controls.
   useEffect(() => {
@@ -77,14 +80,12 @@ export default function Projects() {
     };
   }, [active, lenis, total]);
 
-  const open = (i) => { openedAt.current = i; setActive(i); };
-
   return (
     <section id="work" className="section">
       <SectionHeading eyebrow="Selected work" title="Projects, from problem to result." />
       <div className="project-grid">
         {PROJECTS.map((p, i) => (
-          <ProjectCard key={p.slug} p={p} index={i} onOpen={open} />
+          <ProjectCard key={p.slug} p={p} index={i} onOpen={setActive} />
         ))}
       </div>
 

@@ -1,16 +1,9 @@
 'use client';
 import { useState } from 'react';
 
-/* Screenshot that falls back to a labelled placeholder if the file is missing. */
-export default function Shot({ src, alt, label }) {
+/* Shows a real screenshot; if the file is missing, shows the given fallback. */
+export default function Shot({ src, alt, fallback }) {
   const [failed, setFailed] = useState(false);
-  if (failed) {
-    return (
-      <div className="shot-fallback" role="img" aria-label={alt}>
-        <span>{label}</span>
-        <small>Screenshot coming soon</small>
-      </div>
-    );
-  }
+  if (failed) return fallback ?? null;
   return <img className="shot" src={src} alt={alt} loading="lazy" onError={() => setFailed(true)} />;
 }

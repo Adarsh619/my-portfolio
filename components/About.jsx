@@ -28,7 +28,7 @@ export default function About() {
     <section id="about" className="section" ref={ref}>
       <div className="about-grid">
         <div>
-          <SectionHeading eyebrow="About" title="CS graduate, now going deeper." />
+          <SectionHeading eyebrow="About" title="About me." />
           <Reveal><p className="body-lg">{PERSON.bio}</p></Reveal>
         </div>
         <div className="stats">
