@@ -1,63 +1,106 @@
 'use client';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight } from 'lucide-react';
-import { PROJECTS } from '@/data/portfolio';
+import { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { useLenis } from 'lenis/react';
+import { PROJECTS, asset } from '@/data/portfolio';
 import { SectionHeading } from './ui';
+import Shot from './Shot';
+import ProjectDrawer from './ProjectDrawer';
+
+/* Card with 3D tilt that follows the pointer. */
+function ProjectCard({ p, index, onOpen }) {
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-7, 7]), { stiffness: 200, damping: 20 });
+  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [7, -7]), { stiffness: 200, damping: 20 });
+
+  const onMove = (e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    mx.set((e.clientX - r.left) / r.width - 0.5);
+    my.set((e.clientY - r.top) / r.height - 0.5);
+  };
+  const onLeave = () => { mx.set(0); my.set(0); };
+
+  return (
+    <motion.div
+      className="pcard"
+      role="button"
+      tabIndex={0}
+      data-cursor="View"
+      style={{ rotateX, rotateY, transformPerspective: 900 }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.8, delay: (index % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      onClick={() => onOpen(index)}
+      onKeyDown={(e) => { if (e.key === 'Enter') onOpen(index); }}
+    >
+      <div className="pcard-media">
+        <Shot src={asset(p.images[0])} alt={`${p.name} cover`} label={p.name} />
+      </div>
+      <div className="pcard-body">
+        <div className="pcard-top">
+          <span>{String(index + 1).padStart(2, '0')}</span>
+          <span>{p.year}</span>
+        </div>
+        <h3>{p.name}</h3>
+        <p>{p.tagline}</p>
+        <div className="chips">
+          {p.tags.slice(0, 4).map((t) => <span key={t}>{t}</span>)}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Projects() {
-  const [index, setIndex] = useState(0);
-  const p = PROJECTS[index];
+  const [active, setActive] = useState(null);
+  const lenis = useLenis();
+  const total = PROJECTS.length;
+  const openedAt = useRef(null);
+
+  // Lock page scroll while the panel is open; keyboard controls.
+  useEffect(() => {
+    if (active === null) return;
+    lenis?.stop();
+    const onKey = (e) => {
+      if (e.key === 'Escape') setActive(null);
+      if (e.key === 'ArrowRight') setActive((i) => (i + 1) % total);
+      if (e.key === 'ArrowLeft') setActive((i) => (i - 1 + total) % total);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      lenis?.start();
+    };
+  }, [active, lenis, total]);
+
+  const open = (i) => { openedAt.current = i; setActive(i); };
 
   return (
     <section id="work" className="section">
-      <SectionHeading eyebrow="Selected work" title="Projects, pick one." />
-      <div className="work">
-        <div className="plist">
-          {PROJECTS.map((proj, i) => (
-            <button key={proj.name} className={`pitem ${i === index ? 'on' : ''}`} onClick={() => setIndex(i)}>
-              {i === index && (
-                <motion.span layoutId="pitem-bg" className="pitem-bg" transition={{ type: 'spring', stiffness: 350, damping: 30 }} />
-              )}
-              <span className="pitem-num">0{i + 1}</span>
-              <span className="pitem-name">{proj.name}</span>
-            </button>
-          ))}
-        </div>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={p.name}
-            className="card project-detail"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="pv">{p.name}</div>
-            <div className="pb">
-              <h3>{p.title}</h3>
-              <div className="chips" style={{ marginTop: 10 }}>
-                {p.stack.map((s) => <span key={s}>{s}</span>)}
-              </div>
-              <ul>
-                {p.bullets.map((b) => (
-                  <motion.li key={b} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 }}>
-                    {b}
-                  </motion.li>
-                ))}
-              </ul>
-              {p.liveUrl ? (
-                <a className="btn" href={p.liveUrl} target="_blank" rel="noopener noreferrer">
-                  Live site <ArrowUpRight size={16} />
-                </a>
-              ) : (
-                <span className="small muted">Source on request</span>
-              )}
-            </div>
-          </motion.div>
-        </AnimatePresence>
+      <SectionHeading eyebrow="Selected work" title="Projects, from problem to result." />
+      <div className="project-grid">
+        {PROJECTS.map((p, i) => (
+          <ProjectCard key={p.slug} p={p} index={i} onOpen={open} />
+        ))}
       </div>
+
+      <AnimatePresence>
+        {active !== null && (
+          <ProjectDrawer
+            key="drawer"
+            project={PROJECTS[active]}
+            index={active}
+            total={total}
+            onClose={() => setActive(null)}
+            onPrev={() => setActive((i) => (i - 1 + total) % total)}
+            onNext={() => setActive((i) => (i + 1) % total)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

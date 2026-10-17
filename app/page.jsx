@@ -11,11 +11,13 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Dock from '@/components/Dock';
 import CommandPalette from '@/components/CommandPalette';
+import Cursor from '@/components/Cursor';
 
 export default function Page() {
   return (
     <>
       <Loader />
+      <Cursor />
       <Navbar />
       <main>
         <Hero />
