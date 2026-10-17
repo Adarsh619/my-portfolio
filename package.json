@@ -1,0 +1,27 @@
+{
+  "name": "my-portfolio",
+  "version": "2.0.0",
+  "description": "Adarsh Pradhan R - personal portfolio built with Next.js, React, GSAP, Lenis, Motion and React Three Fiber",
+  "private": true,
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve out -l 3000"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@react-three/drei": "^10.0.0",
+    "@react-three/fiber": "^9.0.0",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.13",
+    "lucide-react": "^0.468.0",
+    "motion": "^11.15.0",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "three": "^0.169.0"
+  }
+}
