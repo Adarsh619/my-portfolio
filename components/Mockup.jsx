@@ -55,6 +55,15 @@ export default function Mockup({ slug, name }) {
             </div>
           </>
         )}
+        {slug === 'portfolio' && (
+          <>
+            <div className="mk-side"><b /><b /><b /></div>
+            <div className="mk-main">
+              <div className="mk-ring" style={{ width: 70, height: 70, alignSelf: 'center' }} />
+              <div className="mk-rows"><span /><span /></div>
+            </div>
+          </>
+        )}
         {slug === 'calorie-tracker' && (
           <>
             <div className="mk-side"><div className="mk-ring" /></div>

@@ -49,7 +49,7 @@ export const HERO_QUICK = [
 ];
 
 export const STATS = [
-  { value: 5, label: 'Projects built' },
+  { value: 6, label: 'Projects built' },
   { value: 3, label: 'Work roles' },
   { value: 384, label: 'Vector size in my AI search' },
   { value: 1, label: 'Certification' }
@@ -63,7 +63,7 @@ export const PROJECTS = [
     name: 'Groundwork',
     title: 'Chat with your own documents',
     tagline: 'A private AI assistant that answers from your PDFs and shows exactly which page each answer came from.',
-    year: '2026',
+    year: 'AI app',
     tags: ['Next.js', 'TypeScript', 'Supabase', 'pgvector', 'Ollama'],
     problem: 'General chatbots can invent answers, and they can’t see private files. People need answers they can check.',
     solution: 'You upload a PDF. The app splits it into pages, finds the passages that match your question, and answers only from them. Every answer cites the file and page. If the document doesn’t contain the answer, the assistant says so instead of guessing.',
@@ -83,7 +83,7 @@ export const PROJECTS = [
     name: 'FinanceFlow',
     title: 'Personal finance dashboard',
     tagline: 'Track spending, budgets and savings goals, with charts built from your own transaction data.',
-    year: '2025',
+    year: 'Dashboard',
     tags: ['React', 'TypeScript', 'Vite', 'Recharts', 'pandas'],
     problem: 'Bank statements are hard to read, and budgeting apps often need an account login to show anything useful.',
     solution: 'A dashboard that works from a CSV export. It imports transactions, checks each row, skips duplicates, and turns the data into cash-flow charts, budgets and savings goals.',
@@ -99,11 +99,30 @@ export const PROJECTS = [
     codeUrl: null
   },
   {
+    slug: 'portfolio',
+    name: 'Developer Portfolio',
+    title: 'This animated 3D portfolio',
+    tagline: 'The site you’re on: scroll-driven animation, a 3D hero and a quick-find menu, deployed automatically.',
+    year: 'Portfolio',
+    tags: ['Next.js 15', 'React 19', 'GSAP', 'Lenis', 'Motion', 'Three.js'],
+    problem: 'A CV on paper doesn’t show how you build. A portfolio should let a recruiter see the work and find what they need in seconds.',
+    solution: 'A static Next.js site with smooth scroll-driven animation, a 3D hero, light and dark modes, and a quick-find menu so visitors can jump straight to a project, the resume or contact details.',
+    highlights: [
+      'Next.js App Router, exported as a static site and deployed to GitHub Pages through a GitHub Actions workflow (Netlify config included)',
+      'GSAP ScrollTrigger and Lenis smooth scrolling, Motion layout transitions, a React Three Fiber 3D hero orb and a custom canvas particle background',
+      'Ctrl/Cmd+K quick navigation and an embedded resume viewer with PDF download',
+      'One data file drives all projects, skills and experience'
+    ],
+    images: ['/projects/portfolio-1.png'],
+    liveUrl: 'https://adarsh619.github.io/my-portfolio/',
+    codeUrl: 'https://github.com/Adarsh619/my-portfolio'
+  },
+  {
     slug: 'aizen-map',
     name: 'Aizen Map',
     title: 'Discover places in Bengaluru',
-    tagline: 'A map and list of cafés, events and places, with search, filters and your live location.',
-    year: '2025',
+    tagline: 'A linked map and list of places and events in Bengaluru, with search, filters and your live location.',
+    year: 'Maps',
     tags: ['Next.js', 'TypeScript', 'Leaflet'],
     problem: 'Finding something nearby means jumping between maps, listings and event pages that don’t agree with each other.',
     solution: 'One page with a linked map and list. Filter by what you want, see what’s near you, save favourites, and only see events that are still on.',
@@ -123,7 +142,7 @@ export const PROJECTS = [
     name: 'PromptLab',
     title: 'AI prompt playground',
     tagline: 'Write, reuse and test prompts with model settings and saved conversations.',
-    year: '2025',
+    year: 'AI tool',
     tags: ['Next.js', 'React', 'TypeScript', 'Supabase'],
     problem: 'Prompts get lost in chat history, and changing settings means starting over.',
     solution: 'A workspace for reusable prompts, model controls and saved chats, with accounts so work stays put.',
@@ -142,7 +161,7 @@ export const PROJECTS = [
     name: 'Calorie Tracker',
     title: 'Daily food and calorie log',
     tagline: 'Log meals, set a daily goal and see progress by date.',
-    year: '2024',
+    year: 'Utility',
     tags: ['React', 'Vite', 'JavaScript', 'localStorage'],
     problem: 'Calorie apps are often cluttered and push accounts before you can try them.',
     solution: 'A simple, fast log that saves in the browser. Add meals, edit them, set a goal and move between days.',
@@ -158,10 +177,11 @@ export const PROJECTS = [
 ];
 
 export const SKILLS = {
-  Frontend: ['JavaScript', 'TypeScript', 'React.js', 'Next.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Vite'],
+  Frontend: ['JavaScript', 'TypeScript', 'React.js', 'Next.js (App Router)', 'HTML5', 'CSS3', 'Tailwind CSS', 'Vite'],
+  'Animation & 3D': ['GSAP + ScrollTrigger', 'Lenis smooth scroll', 'Motion', 'Three.js', 'React Three Fiber', 'Canvas API'],
   'Backend & Data': ['Node.js', 'REST APIs', 'SQL', 'PostgreSQL', 'pgvector', 'Supabase Auth/Storage', 'MySQL'],
   'Applied AI': ['RAG', 'Embeddings', 'Semantic search', 'Prompt engineering', 'Ollama', 'Transformers.js'],
-  'Testing & Tools': ['Vitest', 'Playwright', 'Git', 'GitHub', 'VS Code', 'Netlify', 'Leaflet'],
+  'Testing & Tools': ['Vitest', 'Playwright', 'Git', 'GitHub', 'GitHub Actions', 'GitHub Pages', 'Netlify', 'VS Code', 'Leaflet'],
   'AI Dev Tools': ['OpenAI Codex', 'Claude Code', 'Cursor', 'ChatGPT'],
   Also: ['Java', 'Python basics', 'pandas CSV analytics']
 };
@@ -199,4 +219,4 @@ export const CERTIFICATIONS = [
   { period: '2026', title: 'Claude Academy: Claude 101', org: 'Anthropic' }
 ];
 
-export const MARQUEE_ITEMS = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Supabase', 'pgvector', 'Ollama', 'Playwright', 'Tailwind', 'GSAP'];
+export const MARQUEE_ITEMS = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Supabase', 'pgvector', 'Ollama', 'Playwright', 'Tailwind', 'GSAP', 'Three.js'];
