@@ -1,16 +1,23 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Download, ExternalLink, FileText } from 'lucide-react';
-import { RESUME_URL } from '@/data/portfolio';
+import { RESUME_URL, asset } from '@/data/portfolio';
 import { SectionHeading, Reveal } from './ui';
 
-/* The PDF viewer is only loaded when asked for. An embedded PDF captures the mouse wheel,
-   which stops smooth scrolling and makes the page stutter, so it stays inert until clicked. */
+const PAGES = [1, 2];
+
+/* Computers: the PDF viewer loads on request and stays inert until clicked, because an embedded
+   PDF captures the mouse wheel and stops smooth scrolling.
+   Phones and tablets cannot show a PDF inside a page, so they get page images instead
+   (public/assets/resume-page-1.jpg, resume-page-2.jpg). Tapping one opens the real PDF. */
 export default function Resume() {
+  const [touch, setTouch] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [active, setActive] = useState(false);
 
-  const canHover = () => typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches;
+  useEffect(() => {
+    setTouch(!window.matchMedia('(hover: hover)').matches);
+  }, []);
 
   return (
     <section id="resume" className="section">
@@ -26,7 +33,21 @@ export default function Resume() {
 
       <Reveal delay={0.1}>
         <div className="card resume-frame">
-          {!loaded ? (
+          {touch ? (
+            <div style={{ display: 'grid', gap: 12, padding: 12 }}>
+              {PAGES.map((n) => (
+                <a key={n} href={RESUME_URL} target="_blank" rel="noopener noreferrer" aria-label={`Open resume PDF, page ${n}`}>
+                  <img
+                    src={asset(`/assets/resume-page-${n}.jpg`)}
+                    alt={`Resume, page ${n} of ${PAGES.length}`}
+                    loading="lazy"
+                    style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 10, background: '#fff' }}
+                  />
+                </a>
+              ))}
+              <p className="muted" style={{ fontSize: 13, textAlign: 'center' }}>Tap a page to open the full PDF.</p>
+            </div>
+          ) : !loaded ? (
             <div style={{ display: 'grid', placeItems: 'center', gap: 14, padding: '72px 24px', textAlign: 'center' }}>
               <FileText size={40} color="var(--accent)" />
               <h3 style={{ fontSize: 24 }}>Adarsh Pradhan R — Resume</h3>
@@ -38,7 +59,7 @@ export default function Resume() {
           ) : (
             <div
               style={{ position: 'relative' }}
-              onClick={() => { if (canHover()) setActive(true); }}
+              onClick={() => setActive(true)}
               onMouseLeave={() => setActive(false)}
             >
               <iframe
@@ -46,7 +67,7 @@ export default function Resume() {
                 title="Adarsh Pradhan R — Resume"
                 style={{ pointerEvents: active ? 'auto' : 'none' }}
               />
-              {!active && canHover() && (
+              {!active && (
                 <span
                   style={{
                     position: 'absolute', right: 16, bottom: 16, padding: '8px 14px', borderRadius: 99,
