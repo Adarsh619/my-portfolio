@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef } from 'react';
 
-/* Vanta-style animated network, drawn on canvas (no extra dependency). */
+/* Hero network of moving dots and lines. Pauses when the hero is off-screen or the tab is hidden. */
 export default function ParticleField() {
   const ref = useRef(null);
 
@@ -10,7 +10,12 @@ export default function ParticleField() {
     const ctx = canvas.getContext('2d');
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let w = 0, h = 0, pts = [], mouse = { x: -9999, y: -9999 }, raf = 0;
-    const accent = () => getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#c8ff3d';
+    let visible = true;
+    let color = '#c8ff3d';
+
+    const readColor = () => {
+      color = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || color;
+    };
 
     const size = () => {
       const r = canvas.getBoundingClientRect();
@@ -27,7 +32,6 @@ export default function ParticleField() {
 
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
-      const c = accent();
       if (!reduce) {
         for (const p of pts) {
           p.x += p.vx; p.y += p.vy;
@@ -35,7 +39,7 @@ export default function ParticleField() {
           if (p.y < 0 || p.y > h) p.vy *= -1;
         }
       }
-      ctx.strokeStyle = c; ctx.lineWidth = 1;
+      ctx.strokeStyle = color; ctx.lineWidth = 1;
       for (let i = 0; i < pts.length; i++) {
         for (let j = i + 1; j < pts.length; j++) {
           const a = pts[i], b = pts[j];
@@ -46,15 +50,17 @@ export default function ParticleField() {
           }
         }
       }
-      ctx.fillStyle = c;
+      ctx.fillStyle = color;
       for (const p of pts) {
         const dm = Math.hypot(p.x - mouse.x, p.y - mouse.y);
         ctx.globalAlpha = dm < 160 ? 1 : 0.6;
         ctx.beginPath(); ctx.arc(p.x, p.y, dm < 160 ? 2.2 : 1.4, 0, Math.PI * 2); ctx.fill();
       }
       ctx.globalAlpha = 1;
-      if (!reduce) raf = requestAnimationFrame(draw);
+      raf = !reduce && visible && !document.hidden ? requestAnimationFrame(draw) : 0;
     };
+
+    const start = () => { if (!raf && !reduce && visible && !document.hidden) raf = requestAnimationFrame(draw); };
 
     const host = canvas.parentElement;
     const onMove = (e) => {
@@ -62,16 +68,23 @@ export default function ParticleField() {
       mouse = { x: e.clientX - r.left, y: e.clientY - r.top };
     };
     const onLeave = () => { mouse = { x: -9999, y: -9999 }; };
+    const onTheme = () => { readColor(); if (reduce) draw(); };
 
-    size(); draw();
+    readColor(); size(); draw();
     const ro = new ResizeObserver(() => { size(); if (reduce) draw(); });
     ro.observe(canvas);
+    const io = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; start(); });
+    io.observe(host);
     host.addEventListener('mousemove', onMove);
     host.addEventListener('mouseleave', onLeave);
+    window.addEventListener('themechange', onTheme);
+    document.addEventListener('visibilitychange', start);
     return () => {
-      cancelAnimationFrame(raf); ro.disconnect();
+      cancelAnimationFrame(raf); ro.disconnect(); io.disconnect();
       host.removeEventListener('mousemove', onMove);
       host.removeEventListener('mouseleave', onLeave);
+      window.removeEventListener('themechange', onTheme);
+      document.removeEventListener('visibilitychange', start);
     };
   }, []);
 

@@ -2,7 +2,8 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
 
-/* Three.js (via React Three Fiber) wireframe orb behind the hero photo. Recolours with the theme. */
+/* Three.js (via React Three Fiber) wireframe orb behind the hero photo.
+   Recolours with the theme and stops rendering while it is off-screen. */
 function Orb({ color }) {
   const mesh = useRef(null);
   useFrame((state, dt) => {
@@ -20,6 +21,8 @@ function Orb({ color }) {
 
 export default function ThreeOrb() {
   const [color, setColor] = useState('#c8ff3d');
+  const [visible, setVisible] = useState(true);
+  const wrap = useRef(null);
 
   useEffect(() => {
     const update = () => {
@@ -28,12 +31,24 @@ export default function ThreeOrb() {
     };
     update();
     window.addEventListener('themechange', update);
-    return () => window.removeEventListener('themechange', update);
+    const io = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting));
+    if (wrap.current) io.observe(wrap.current);
+    return () => {
+      window.removeEventListener('themechange', update);
+      io.disconnect();
+    };
   }, []);
 
   return (
-    <Canvas camera={{ position: [0, 0, 4.2], fov: 45 }} dpr={[1, 2]} aria-hidden="true">
-      <Orb color={color} />
-    </Canvas>
+    <div ref={wrap} style={{ position: 'absolute', inset: 0 }}>
+      <Canvas
+        camera={{ position: [0, 0, 4.2], fov: 45 }}
+        dpr={[1, 1.5]}
+        frameloop={visible ? 'always' : 'never'}
+        aria-hidden="true"
+      >
+        <Orb color={color} />
+      </Canvas>
+    </div>
   );
 }
