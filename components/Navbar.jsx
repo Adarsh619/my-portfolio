@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Command, Download } from 'lucide-react';
-import { NAV, RESUME_URL } from '@/data/portfolio';
+import { NAV, RESUME_URL, asset } from '@/data/portfolio';
 import { useGo } from './useGo';
 
 export default function Navbar() {
@@ -30,7 +30,14 @@ export default function Navbar() {
   return (
     <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <a href="#top" className="logo" onClick={(e) => { e.preventDefault(); go('top'); }}>
-        AP<b>.</b>
+        <img
+          className="logo-img"
+          src={asset('/assets/avatar.jpg')}
+          alt="Adarsh Pradhan R, home"
+          width={42}
+          height={42}
+          style={{ width: 42, height: 42, borderRadius: '50%', objectFit: 'cover', display: 'block', border: '2px solid var(--accent)' }}
+        />
       </a>
 
       <nav className="pill" aria-label="Primary">

@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react';
 import ParticleField from './ParticleField';
 import Magnetic from './Magnetic';
 import { useGo } from './useGo';
-import { PERSON, HERO_WORDS, HERO_CHIPS, HERO_QUICK } from '@/data/portfolio';
+import { PERSON, HERO_WORDS, HERO_CHIPS, HERO_QUICK, asset } from '@/data/portfolio';
 
 const ThreeOrb = dynamic(() => import('./ThreeOrb'), { ssr: false });
 
@@ -60,8 +60,7 @@ export default function Hero() {
         <div className="photo-wrap">
           <ThreeOrb />
           <div className="photo">
-            <span>{PERSON.initials}</span>
-            <small>Add photo: public/assets/photo.jpg</small>
+            <img className="photo-img" src={asset('/assets/photo.jpg')} alt="Adarsh Pradhan R" />
           </div>
           {HERO_CHIPS.map((c, i) => (
             <div key={c.label} className={`chip-wrap ${c.pos}`}>
