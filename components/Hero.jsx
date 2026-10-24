@@ -42,13 +42,13 @@ export default function Hero() {
       <div className="hero-grid">
         <div>
           <span className="status h-anim"><i className="dot" /> <span className="shiny">{PERSON.availability}</span></span>
-          <h1 className="hero-title" aria-label="Hi, I’m Adarsh. I build RAG apps, React UIs and REST APIs.">
+          <h1 className="hero-title" aria-label="Hi, I’m Adarsh. I build RAG apps, React UIs, full-stack apps, websites and dashboards.">
             {HERO_WORDS.map(([word, cls], i) => (
               <Fragment key={i}>
                 <span className="word">
                   <span className={`inner ${cls || ''}`}>{word}</span>
                 </span>
-                {word === 'Adarsh.' && <br />}
+                {(word === 'Adarsh.' || word === 'build') && <br />}
               </Fragment>
             ))}
             <span className="word">
