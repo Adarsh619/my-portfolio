@@ -20,7 +20,7 @@ function Orb({ color }) {
 }
 
 export default function ThreeOrb() {
-  const [color, setColor] = useState('#c8ff3d');
+  const [color, setColor] = useState('#6c8cff');
   const [visible, setVisible] = useState(true);
   const wrap = useRef(null);
 

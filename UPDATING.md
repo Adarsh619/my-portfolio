@@ -29,7 +29,7 @@ Stop the server with **Ctrl + C**.
 | Work experience, education, certifications | `data/portfolio.js` → `EXPERIENCE`, `EDUCATION`, `CERTIFICATIONS` |
 | Hero headline size, colours, fonts, spacing | `app/globals.css` (colours are at the top, in `:root`) |
 | Site icon (browser tab) | `app/icon.svg` |
-| Resume PDF | `public/assets/Adarsh_Pradhan_Resume.pdf` (keep the same file name) |
+| Resume PDF | `public/assets/Adarsh_Pradhan_Resume.pdf` (keep the same file name). Phones show `resume-page-1.jpg` and `resume-page-2.jpg` in the same folder, so these two images must be remade whenever the PDF changes (ask the assistant, or export each page as a JPG with those names). |
 | Project screenshots | `public/projects/` (see section 4) |
 | Section headings (for example "About me.") | `components/About.jsx`, `components/Projects.jsx` and the other section files |
 | Animations | `components/` (for example `Hero.jsx`, `DotField.jsx`, `ParticleField.jsx`) |
@@ -69,9 +69,8 @@ Until the file exists, the site shows a built-in preview instead of a broken ima
 
 Open `app/globals.css`:
 
-- **Dark mode colours:** the `:root` block at the top, for example `--accent: #c8ff3d;` (the lime colour).
+- **Dark mode colours:** the `:root` block at the top, for example `--accent: #6c8cff;` (the single blue accent).
 - **Light mode colours:** the `:root[data-theme='light']` block near the bottom.
-- **Background glow:** `--glow-a`, `--glow-b`, `--glow-c` in the same places.
 
 Visitors can switch modes with the sun/moon button in the side panel. Their choice is saved in their browser.
 

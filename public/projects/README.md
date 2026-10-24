@@ -4,6 +4,7 @@ Add one PNG or JPG per screenshot, using the exact names listed in `data/portfol
 
 - groundwork-1.png, groundwork-2.png
 - financeflow-1.png
+- portfolio-1.png
 - aizen-map-1.png
 - promptlab-1.png
 - calorie-tracker-1.png

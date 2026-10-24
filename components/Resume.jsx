@@ -21,7 +21,7 @@ export default function Resume() {
 
   return (
     <section id="resume" className="section">
-      <SectionHeading eyebrow="Resume" title="Full CV, one click away." />
+      <SectionHeading eyebrow="Resume" title="My resume." />
       <Reveal className="resume-actions">
         <a className="btn" href={RESUME_URL} target="_blank" rel="noopener noreferrer">
           Open in new tab <ExternalLink size={16} />

@@ -11,7 +11,7 @@ export default function ParticleField() {
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let w = 0, h = 0, pts = [], mouse = { x: -9999, y: -9999 }, raf = 0;
     let visible = true;
-    let color = '#c8ff3d';
+    let color = '#6c8cff';
 
     const readColor = () => {
       color = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || color;

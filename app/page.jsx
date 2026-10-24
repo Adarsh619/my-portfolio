@@ -13,16 +13,13 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Dock from '@/components/Dock';
 import CommandPalette from '@/components/CommandPalette';
+import ClickSpark from '@/components/ClickSpark';
 
 export default function Page() {
   return (
     <>
-      <div className="aurora" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </div>
       <DotField />
+      <ClickSpark />
       <Loader />
       <Navbar />
       <SideRail />

@@ -7,8 +7,10 @@ import { useGSAP } from '@gsap/react';
 import { ArrowRight } from 'lucide-react';
 import ParticleField from './ParticleField';
 import Magnetic from './Magnetic';
+import RotatingText from './RotatingText';
+import TiltPhoto from './TiltPhoto';
 import { useGo } from './useGo';
-import { PERSON, HERO_WORDS, HERO_CHIPS, HERO_QUICK, asset } from '@/data/portfolio';
+import { PERSON, HERO_WORDS, HERO_ROTATE, HERO_CHIPS, HERO_QUICK, asset } from '@/data/portfolio';
 
 const ThreeOrb = dynamic(() => import('./ThreeOrb'), { ssr: false });
 
@@ -39,13 +41,19 @@ export default function Hero() {
       <ParticleField />
       <div className="hero-grid">
         <div>
-          <span className="status h-anim"><i className="dot" /> {PERSON.availability}</span>
-          <h1 className="hero-title" aria-label="Hi, I’m Adarsh. I build AI-powered web apps.">
+          <span className="status h-anim"><i className="dot" /> <span className="shiny">{PERSON.availability}</span></span>
+          <h1 className="hero-title" aria-label="Hi, I’m Adarsh. I build RAG apps, React UIs and REST APIs.">
             {HERO_WORDS.map(([word, cls], i) => (
-              <span className="word" key={i}>
-                <span className={`inner ${cls || ''}`}>{word}</span>
+              <span key={i}>
+                <span className="word">
+                  <span className={`inner ${cls || ''}`}>{word}</span>
+                </span>
+                {word === 'Adarsh.' && <br />}
               </span>
             ))}
+            <span className="word">
+              <span className="inner"><RotatingText words={HERO_ROTATE} /></span>
+            </span>
           </h1>
           <p className="hero-lead h-anim">
             {PERSON.role}. I ship local RAG, vector search and polished interfaces, backed by real support and recruiting experience.
@@ -59,9 +67,11 @@ export default function Hero() {
 
         <div className="photo-wrap">
           <ThreeOrb />
-          <div className="photo">
-            <img className="photo-img" src={asset('/assets/photo.jpg')} alt="Adarsh Pradhan R" />
-          </div>
+          <TiltPhoto>
+            <div className="photo">
+              <img className="photo-img" src={asset('/assets/photo.jpg')} alt="Adarsh Pradhan R" />
+            </div>
+          </TiltPhoto>
           {HERO_CHIPS.map((c, i) => (
             <div key={c.label} className={`chip-wrap ${c.pos}`}>
               <span className="chip" style={{ animationDelay: `${i * 0.7}s` }}>{c.label}</span>

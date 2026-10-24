@@ -30,8 +30,10 @@ export const NAV = [
 ];
 
 export const HERO_WORDS = [
-  ['Hi,'], ['I’m'], ['Adarsh.', 'accent'], ['I'], ['build'], ['AI-powered'], ['web'], ['apps.']
+  ['Hi,'], ['I’m'], ['Adarsh.', 'accent'], ['I'], ['build']
 ];
+
+export const HERO_ROTATE = ['RAG apps.', 'React UIs.', 'REST APIs.'];
 
 export const HERO_CHIPS = [
   { label: 'React', pos: 'chip-1' },

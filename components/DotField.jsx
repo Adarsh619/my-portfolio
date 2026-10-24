@@ -12,7 +12,7 @@ export default function DotField() {
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const gap = 32;
     let w = 0, h = 0, t = 0, raf = 0;
-    let base = '#8d8d95', hot = '#c8ff3d';
+    let base = '#8d8d95', hot = '#6c8cff';
     let mouse = { x: -9999, y: -9999 };
 
     const readColors = () => {

@@ -3,13 +3,13 @@
    ========================================================================== */
 
 :root {
-  --bg: #0a0a0b;
-  --surface: #131316;
-  --line: #26262b;
-  --text: #f2f2f0;
-  --muted: #8d8d95;
-  --accent: #c8ff3d;
-  --on: #0a0a0b;
+  --bg: #0b0c10;
+  --surface: #12141b;
+  --line: #21242f;
+  --text: #eceef4;
+  --muted: #8a90a3;
+  --accent: #6c8cff;
+  --on: #0b0c10;
   color-scheme: dark;
 }
 
@@ -556,8 +556,8 @@ kbd {
    ========================================================================== */
 :root { --glow-a: #c8ff3d; --glow-b: #6ee7ff; --glow-c: #ff6bd6; }
 :root[data-theme='light'] {
-  --bg: #f6f6f2; --surface: #ffffff; --line: #deded8; --text: #111113;
-  --muted: #66666d; --accent: #4d7c0f; --on: #ffffff; color-scheme: light;
+  --bg: #f4f5f8; --surface: #ffffff; --line: #dfe2ea; --text: #10121a;
+  --muted: #5f6578; --accent: #2f55d4; --on: #ffffff; color-scheme: light;
   --glow-a: #a3e635; --glow-b: #38bdf8; --glow-c: #f472b6;
 }
 body { transition: background-color 0.6s ease, color 0.6s ease; }
@@ -614,3 +614,34 @@ body { transition: background-color 0.6s ease, color 0.6s ease; }
 
 /* Hero photo */
 .photo-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+
+/* Nav logo photo */
+.logo-img {
+  width: 42px; height: 42px; border-radius: 50%; object-fit: cover; display: block;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 35%, transparent);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.logo:hover .logo-img { transform: scale(1.08) rotate(-4deg); }
+
+
+/* ==========================================================================
+   Calmer look: one accent colour, no glows. New text effects.
+   ========================================================================== */
+.photo { box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.55); }
+.dot { box-shadow: none; }
+.rail-link.on .rail-dot { box-shadow: none; }
+.logo-img { box-shadow: none; }
+.pcard:hover { box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.5); }
+
+.rot { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.12em; color: var(--accent); }
+.shiny {
+  background: linear-gradient(110deg, var(--muted) 35%, var(--text) 50%, var(--muted) 65%);
+  background-size: 200% 100%; -webkit-background-clip: text; background-clip: text;
+  color: transparent; animation: shine 3.2s linear infinite;
+}
+@keyframes shine { from { background-position: 150% 0; } to { background-position: -50% 0; } }
+.sr-w { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .shiny { background: none; color: var(--muted); -webkit-text-fill-color: currentColor; }
+}

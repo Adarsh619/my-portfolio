@@ -82,7 +82,7 @@ export default function Projects() {
 
   return (
     <section id="work" className="section">
-      <SectionHeading eyebrow="Selected work" title="Projects, from problem to result." />
+      <SectionHeading eyebrow="Selected work" title="Things I’ve built." />
       <div className="project-grid">
         {PROJECTS.map((p, i) => (
           <ProjectCard key={p.slug} p={p} index={i} onOpen={setActive} />

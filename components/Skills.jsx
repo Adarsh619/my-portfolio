@@ -16,7 +16,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="section">
-      <SectionHeading eyebrow="Toolbox" title="Skills by category." />
+      <SectionHeading eyebrow="Toolbox" title="What I work with." />
       <div className="tabs" role="tablist">
         {categories.map((c) => (
           <button key={c} role="tab" aria-selected={c === active} className={`tab ${c === active ? 'on' : ''}`} onClick={() => setActive(c)}>

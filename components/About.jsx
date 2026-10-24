@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SectionHeading, Reveal, Spotlight } from './ui';
+import ScrollReveal from './ScrollReveal';
 import { PERSON, STATS } from '@/data/portfolio';
 
 export default function About() {
@@ -29,7 +30,7 @@ export default function About() {
       <div className="about-grid">
         <div>
           <SectionHeading eyebrow="About" title="About me." />
-          <Reveal><p className="body-lg">{PERSON.bio}</p></Reveal>
+          <ScrollReveal text={PERSON.bio} />
         </div>
         <div className="stats">
           {STATS.map((s, i) => (
