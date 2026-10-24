@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -44,12 +44,12 @@ export default function Hero() {
           <span className="status h-anim"><i className="dot" /> <span className="shiny">{PERSON.availability}</span></span>
           <h1 className="hero-title" aria-label="Hi, I’m Adarsh. I build RAG apps, React UIs and REST APIs.">
             {HERO_WORDS.map(([word, cls], i) => (
-              <span key={i}>
+              <Fragment key={i}>
                 <span className="word">
                   <span className={`inner ${cls || ''}`}>{word}</span>
                 </span>
                 {word === 'Adarsh.' && <br />}
-              </span>
+              </Fragment>
             ))}
             <span className="word">
               <span className="inner"><RotatingText words={HERO_ROTATE} /></span>
