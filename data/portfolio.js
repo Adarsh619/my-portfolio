@@ -17,7 +17,7 @@ export const PERSON = {
   email: 'adarshpradhan77@gmail.com',
   linkedin: 'https://linkedin.com/in/adarshpradhan02',
   github: 'https://github.com/Adarsh619',
-  bio: 'I build web apps that are fast, clear and easy to use. Right now I’m doing my MCA and building projects with AI features, like a tool that answers questions from your own PDFs. Before coding full-time, I worked in tech support and recruitment, so I’m good at understanding what people need and explaining things clearly.'
+  bio: 'I build web apps that are fast, clear and easy to use. Right now I’m a Full-Stack Developer Intern at Nexvia Technologies, where I built and deployed a Multi-Tenant SaaS Project Management Platform (TaskFlow). I’m also doing my MCA and building projects with AI features, like a tool that answers questions from your own PDFs. Before coding full-time, I worked in tech support and recruitment, so I’m good at understanding what people need and explaining things clearly.'
 };
 
 export const NAV = [
@@ -33,7 +33,7 @@ export const HERO_WORDS = [
   ['Hi,'], ['I’m'], ['Adarsh.', 'accent'], ['I'], ['build']
 ];
 
-export const HERO_ROTATE = ['RAG apps.', 'React UIs.', 'full-stack apps.', 'websites.', 'dashboards.'];
+export const HERO_ROTATE = ['RAG apps.', 'SaaS platforms.', 'React UIs.', 'full-stack apps.', 'websites.', 'dashboards.'];
 
 export const HERO_CHIPS = [
   { label: 'React', pos: 'chip-1' },
@@ -51,15 +51,37 @@ export const HERO_QUICK = [
 ];
 
 export const STATS = [
-  { value: 6, label: 'Projects built' },
-  { value: 3, label: 'Work roles' },
+  { value: 7, label: 'Projects built' },
+  { value: 4, label: 'Work roles' },
   { value: 384, label: 'Vector size in my AI search' },
-  { value: 1, label: 'Certification' }
+  { value: 2, label: 'Certifications' }
 ];
 
 /* images: files in public/projects/, first one is the card cover.
    liveUrl / codeUrl: set to null if there is no link. */
 export const PROJECTS = [
+  {
+    slug: 'taskflow',
+    name: 'Multi-Tenant SaaS Project Management Platform',
+    title: 'TaskFlow: a Jira-style workspace for every company',
+    tagline: 'A Jira-style workspace where every company gets its own boards, sprints and billing, kept fully separate from every other company.',
+    year: 'Internship · Live',
+    tags: ['Django', 'React', 'PostgreSQL', 'Celery', 'Redis', 'Stripe', 'Docker'],
+    problem: 'Teams need one place to plan and track work. A SaaS tool also has to keep each company’s data completely separate, give each person only the access their role allows, and charge for plans without double billing.',
+    solution: 'My first internship project at Nexvia Technologies. Each company signs up and gets its own workspace with projects, drag-and-drop Kanban boards, sprints, custom workflows, an audit log, webhooks and Stripe subscription billing. Every request is checked against the company it belongs to, so one company can’t reach another’s data, even by guessing IDs. Try it with the demo login shown on the sign-in page.',
+    highlights: [
+      'Shared-schema multi-tenancy: every query is scoped to the workspace and every linked ID is validated against it',
+      'Four roles per workspace (viewer, member, admin, owner), with pages that explain why an action isn’t allowed',
+      'Drag-and-drop Kanban with optimistic updates, custom workflows whose allowed transitions are enforced by the API, and sprints',
+      'Stripe Checkout and Customer Portal with signed webhooks that are safe against duplicate or late events, plus plan limits',
+      'Celery and Redis jobs for HMAC-signed webhooks with retries and an SSRF guard, email reminders and weekly reports',
+      'Append-only audit log with field-level diffs and CSV export',
+      '185 backend tests at 96% coverage and 62 frontend tests. The CI/CD pipeline smoke-tests the full Docker stack, publishes images and deploys every tested push to Render'
+    ],
+    images: ['/projects/taskflow-1.png', '/projects/taskflow-2.png'],
+    liveUrl: 'https://taskflow-fs04.onrender.com',
+    codeUrl: 'https://github.com/Adarsh619/Rout_Adarsh_Pradhan_Capstone_Projects/tree/main/FS-04'
+  },
   {
     slug: 'groundwork',
     name: 'Groundwork',
@@ -78,7 +100,7 @@ export const PROJECTS = [
     ],
     images: ['/projects/groundwork-1.png', '/projects/groundwork-2.png'],
     liveUrl: null,
-    codeUrl: null
+    codeUrl: 'https://github.com/Adarsh619/RAG-Knowledge-Assistant'
   },
   {
     slug: 'financeflow',
@@ -123,21 +145,23 @@ export const PROJECTS = [
     slug: 'aizen-map',
     name: 'Aizen Map',
     title: 'Discover places in Bengaluru',
-    tagline: 'A linked map and list of places and events in Bengaluru, with search, filters and your live location.',
-    year: 'Maps',
-    tags: ['Next.js', 'TypeScript', 'Leaflet'],
+    tagline: 'A linked map and list of cafés, food, malls and screenings across Bengaluru, with search, filters and your live location.',
+    year: 'Maps · Live',
+    tags: ['Next.js', 'TypeScript', 'Leaflet', 'Tailwind CSS', 'Netlify'],
     problem: 'Finding something nearby means jumping between maps, listings and event pages that don’t agree with each other.',
-    solution: 'One page with a linked map and list. Filter by what you want, see what’s near you, save favourites, and only see events that are still on.',
+    solution: 'One page with a linked map and list. Pick All, Tonight or Explore, filter by category, neighbourhood or date, see what’s near you, save favourites, and only see events that are still on. Every listing links to its source, and it’s live on Netlify.',
     highlights: [
-      'Linked map and list views with search, filters and browser geolocation',
-      'Saved favourites and light/dark themes',
-      'Curated listings with source links',
-      'Time-aware event visibility',
-      'Keyboard controls, plus clear fallback states when map tiles fail'
+      'Linked Leaflet map and feed: selecting a pin or a card opens the same listing',
+      'Search by place, category, neighbourhood or alias, with suggestions, category and date filters, and opt-in “Near me” geolocation',
+      '61 curated picks across 20+ neighbourhoods, each with its source link and Google Maps directions for driving, transit or walking',
+      'Time-aware events checked in Asia/Kolkata time: past events disappear on their own, even across midnight',
+      'Favourites and the light/dark choice are saved in the browser, so there’s no account to create',
+      'Responsive layout with an icon sidebar on desktop and a drawer plus feed/map switch on phones',
+      'Keyboard controls, reduced-motion support, and clear fallback states when map tiles fail. No ratings are invented'
     ],
-    images: ['/projects/aizen-map-1.png'],
+    images: ['/projects/aizen-map-1.png', '/projects/aizen-map-2.jpg', '/projects/aizen-map-3.jpg'],
     liveUrl: 'https://aizenmap.netlify.app',
-    codeUrl: null
+    codeUrl: 'https://github.com/Adarsh619/Development-projects/tree/main/aizen-map'
   },
   {
     slug: 'promptlab',
@@ -181,14 +205,21 @@ export const PROJECTS = [
 export const SKILLS = {
   Frontend: ['JavaScript', 'TypeScript', 'React.js', 'Next.js (App Router)', 'HTML5', 'CSS3', 'Tailwind CSS', 'Vite'],
   'Animation & 3D': ['GSAP + ScrollTrigger', 'Lenis smooth scroll', 'Motion', 'Three.js', 'React Three Fiber', 'Canvas API'],
-  'Backend & Data': ['Node.js', 'REST APIs', 'SQL', 'PostgreSQL', 'pgvector', 'Supabase Auth/Storage', 'MySQL'],
+  'Backend & Data': ['Node.js', 'Django', 'Django REST Framework', 'REST APIs', 'SQL', 'PostgreSQL', 'pgvector', 'Redis', 'Celery', 'Stripe Billing', 'Supabase Auth/Storage', 'MySQL'],
   'Applied AI': ['RAG', 'Embeddings', 'Semantic search', 'Prompt engineering', 'Ollama', 'Transformers.js'],
-  'Testing & Tools': ['Vitest', 'Playwright', 'Git', 'GitHub', 'GitHub Actions', 'GitHub Pages', 'Netlify', 'VS Code', 'Leaflet'],
+  'Testing & Tools': ['Vitest', 'Playwright', 'pytest', 'Docker', 'Docker Compose', 'nginx', 'Git', 'GitHub', 'GitHub Actions', 'GitHub Pages', 'Netlify', 'Render', 'VS Code', 'Leaflet'],
   'AI Dev Tools': ['OpenAI Codex', 'Claude Code', 'Cursor', 'ChatGPT'],
-  Also: ['Java', 'Python basics', 'pandas CSV analytics']
+  Also: ['Java', 'Python', 'pandas CSV analytics']
 };
 
 export const EXPERIENCE = [
+  {
+    period: 'Oct 2026 – Present',
+    location: 'Bengaluru',
+    role: 'Full-Stack Developer Intern',
+    company: 'Nexvia Technologies',
+    summary: 'Building full-stack features end to end. Shipped a Multi-Tenant SaaS Project Management Platform (TaskFlow) with Django, React, Celery and Stripe billing, with CI/CD and a live deployment.'
+  },
   {
     period: 'Jul 2026 – Sep 2026',
     location: 'Bengaluru',
@@ -218,7 +249,8 @@ export const EDUCATION = [
 ];
 
 export const CERTIFICATIONS = [
+  { period: '2026', title: 'Claude Academy: Claude Code 101', org: 'Anthropic' },
   { period: '2026', title: 'Claude Academy: Claude 101', org: 'Anthropic' }
 ];
 
-export const MARQUEE_ITEMS = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Supabase', 'pgvector', 'Ollama', 'Playwright', 'Tailwind', 'GSAP', 'Three.js'];
+export const MARQUEE_ITEMS = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Django', 'Supabase', 'pgvector', 'Ollama', 'Docker', 'Playwright', 'Tailwind', 'GSAP', 'Three.js'];
