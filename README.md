@@ -1,6 +1,6 @@
 # Adarsh Pradhan R — Portfolio
 
-Personal portfolio built with **Next.js (App Router), React 19, GSAP + ScrollTrigger, Lenis, Motion and React Three Fiber**.
+Personal portfolio built with **Next.js (App Router), React 19, GSAP + ScrollTrigger, Lenis and Motion**.
 Exported as a static site, so it deploys to **Netlify** or **GitHub Pages** with no server.
 
 ## Tech stack
@@ -11,7 +11,7 @@ Exported as a static site, so it deploys to **Netlify** or **GitHub Pages** with
 | Smooth scroll | Lenis (`lenis/react`) | Inertia scrolling, `scrollTo` for the nav |
 | Scroll animation | GSAP + ScrollTrigger + `@gsap/react` | Loader, heading reveals, count-up, timeline, scrubbed progress |
 | UI motion | Motion (`motion/react`) | Layout-animated nav pill, project and skill transitions, palette, dock, reveals, scroll-velocity marquee |
-| 3D | Three.js, React Three Fiber, drei | The 3D orb in the hero (`Float`, `MeshDistortMaterial`) |
+| Hero photo | SVG + CSS, Motion | Orbit rings behind the photo (`components/HeroBackdrop.jsx`) and pointer tilt (`components/TiltPhoto.jsx`) |
 | Effects | Canvas (custom) | Particle network background, Magnetic buttons, spotlight cards (React Bits style) |
 | Icons | lucide-react | Icons |
 | Fonts | Space Grotesk + Inter via `next/font` | Typography |
@@ -36,7 +36,7 @@ To check the production build: `npm run build` (writes `out/`), then `npm start`
 | Colours, fonts, spacing | `app/globals.css` (`:root`) |
 | Resume | Replace `public/assets/Adarsh_Pradhan_Resume.pdf` (keep the name) |
 | Photo | Add `public/assets/photo.jpg`, then swap the `.photo` block in `components/Hero.jsx` for `<img src="/assets/photo.jpg" />` (set `object-fit: cover`, `border-radius: 50%`) |
-| 3D orb | `components/HeroOrb.jsx` |
+| Orbit behind the photo | `components/HeroBackdrop.jsx` (styles: `.bd-*` in `app/globals.css`) |
 
 Shortcut on the site: **Ctrl/⌘ + K** opens quick find.
 

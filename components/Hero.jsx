@@ -1,6 +1,5 @@
 'use client';
 import { Fragment, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -9,10 +8,9 @@ import ParticleField from './ParticleField';
 import Magnetic from './Magnetic';
 import RotatingText from './RotatingText';
 import TiltPhoto from './TiltPhoto';
+import HeroBackdrop from './HeroBackdrop';
 import { useGo } from './useGo';
 import { PERSON, HERO_WORDS, HERO_ROTATE, HERO_CHIPS, HERO_QUICK, asset } from '@/data/portfolio';
-
-const ThreeOrb = dynamic(() => import('./ThreeOrb'), { ssr: false });
 
 export default function Hero() {
   const root = useRef(null);
@@ -66,7 +64,7 @@ export default function Hero() {
         </div>
 
         <div className="photo-wrap">
-          <ThreeOrb />
+          <HeroBackdrop />
           <TiltPhoto>
             <div className="photo">
               <img className="photo-img" src={asset('/assets/photo.jpg')} alt="Adarsh Pradhan R" />

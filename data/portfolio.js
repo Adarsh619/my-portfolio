@@ -125,15 +125,15 @@ export const PROJECTS = [
   {
     slug: 'portfolio',
     name: 'Developer Portfolio',
-    title: 'This animated 3D portfolio',
-    tagline: 'The site you’re on: scroll-driven animation, a 3D hero and a quick-find menu, deployed automatically.',
+    title: 'This animated portfolio',
+    tagline: 'The site you’re on: scroll-driven animation, an interactive hero and a quick-find menu, deployed automatically.',
     year: 'Portfolio',
-    tags: ['Next.js 15', 'React 19', 'GSAP', 'Lenis', 'Motion', 'Three.js'],
+    tags: ['Next.js 15', 'React 19', 'GSAP', 'Lenis', 'Motion', 'Canvas API'],
     problem: 'A CV on paper doesn’t show how you build. A portfolio should let a recruiter see the work and find what they need in seconds.',
-    solution: 'A static Next.js site with smooth scroll-driven animation, a 3D hero, light and dark modes, and a quick-find menu so visitors can jump straight to a project, the resume or contact details.',
+    solution: 'A static Next.js site with smooth scroll-driven animation, an interactive hero, light and dark modes, and a quick-find menu so visitors can jump straight to a project, the resume or contact details.',
     highlights: [
       'Next.js App Router, exported as a static site and deployed to GitHub Pages through a GitHub Actions workflow (Netlify config included)',
-      'GSAP ScrollTrigger and Lenis smooth scrolling, Motion layout transitions, a React Three Fiber 3D hero orb and a custom canvas particle background',
+      'GSAP ScrollTrigger and Lenis smooth scrolling, Motion layout transitions, a pointer-tilt hero photo inside an animated SVG orbit, and a custom canvas particle background',
       'Ctrl/Cmd+K quick navigation and an embedded resume viewer with PDF download',
       'One data file drives all projects, skills and experience'
     ],

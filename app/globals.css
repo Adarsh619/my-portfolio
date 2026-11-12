@@ -178,11 +178,6 @@ kbd {
   border: 1px solid var(--line);
   box-shadow: 0 0 110px color-mix(in srgb, var(--accent) 28%, transparent);
 }
-.photo::after {
-  content: ''; position: absolute; inset: -14px; border-radius: 50%;
-  border: 1px dashed var(--accent); opacity: 0.45;
-  animation: spin 30s linear infinite;
-}
 @keyframes spin { to { transform: rotate(360deg); } }
 .photo span {
   font-family: var(--font-display), sans-serif; font-weight: 700;
@@ -368,11 +363,7 @@ kbd {
   }
 }
 
-/* ---------- 3D hero orb (React Three Fiber) ---------- */
-.photo-wrap canvas {
-  position: absolute; inset: -22%; width: 144% !important; height: 144% !important; z-index: 0;
-  pointer-events: none;
-}
+/* ---------- Hero photo layers ---------- */
 .photo { z-index: 1; }
 .chip-wrap { z-index: 2; }
 
@@ -645,3 +636,20 @@ body { transition: background-color 0.6s ease, color 0.6s ease; }
 @media (prefers-reduced-motion: reduce) {
   .shiny { background: none; color: var(--muted); -webkit-text-fill-color: currentColor; }
 }
+
+/* ==========================================================================
+   Hero photo orbit backdrop (components/HeroBackdrop.jsx)
+   ========================================================================== */
+.bd { position: absolute; inset: -14%; z-index: 0; pointer-events: none; }
+.bd-svg { width: 128%; height: 128%; overflow: visible; }
+
+.bd-spin { transform-box: view-box; transform-origin: 50px 50px; animation: spin 48s linear infinite; }
+.bd-spin-slow { animation-duration: 36s; }
+.bd-spin-rev { animation-duration: 60s; animation-direction: reverse; }
+
+.bd-ring { fill: none; stroke: var(--line); stroke-width: 0.25; }
+.bd-ring-dash { stroke: var(--muted); stroke-opacity: 0.5; stroke-dasharray: 0.4 2.2; stroke-linecap: round; }
+.bd-marker { fill: var(--accent); }
+.bd-marker-hollow { fill: var(--bg); stroke: var(--accent); stroke-width: 0.35; }
+.bd-tick { stroke: var(--muted); stroke-opacity: 0.6; stroke-width: 0.3; stroke-linecap: round; }
+
