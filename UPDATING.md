@@ -25,7 +25,7 @@ Stop the server with **Ctrl + C**.
 |---|---|
 | Name, email, LinkedIn, GitHub, bio, stats, hero headline | `data/portfolio.js` (top of the file) |
 | Projects (names, descriptions, highlights, stack, links, screenshots) | `data/portfolio.js` → `PROJECTS` |
-| Skills | `data/portfolio.js` → `SKILLS` |
+| Tech stack (logo grid) and "Currently building" panel | `data/portfolio.js` → `TECH`, `TECH_ALSO`, `NOW_BUILDING` (logos in `public/icons/`) |
 | Work experience, education, certifications | `data/portfolio.js` → `EXPERIENCE`, `EDUCATION`, `CERTIFICATIONS` |
 | Hero headline size, colours, fonts, spacing | `app/globals.css` (colours are at the top, in `:root`) |
 | Site icon (browser tab) | `app/icon.svg` |

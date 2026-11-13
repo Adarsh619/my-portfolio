@@ -12,12 +12,13 @@ export const PERSON = {
   name: 'Adarsh Pradhan R',
   initials: 'AP',
   role: 'Frontend and Full-Stack Developer',
+  headline: 'Full-stack developer building SaaS platforms, marketplaces and AI tools that cite their sources, with React, Next.js, Django and Node.js. Currently a Full-Stack Developer Intern at Nexvia Technologies.',
   location: 'Bengaluru, India',
   availability: 'Open to frontend & full-stack roles · Bengaluru',
   email: 'adarshpradhan77@gmail.com',
   linkedin: 'https://linkedin.com/in/adarshpradhan02',
   github: 'https://github.com/Adarsh619',
-  bio: 'I build web apps that are fast, clear and easy to use. Right now I’m a Full-Stack Developer Intern at Nexvia Technologies, where I built and deployed a Multi-Tenant SaaS Project Management Platform (TaskFlow). I’m also doing my MCA and building projects with AI features, like a tool that answers questions from your own PDFs. Before coding full-time, I worked in tech support and recruitment, so I’m good at understanding what people need and explaining things clearly.'
+  bio: 'At Nexvia Technologies, where I’m a Full-Stack Developer Intern, I built and deployed a Multi-Tenant SaaS Project Management Platform, and I’m now building ShopSphere, a multi-vendor marketplace. Outside work I’m building PaperWeave, an AI research assistant. Before this I shipped Groundwork, a PDF assistant that cites its pages, Aizen Map, a Bengaluru discovery app live on Netlify, and this portfolio. I have a B.Tech in Computer Science, I’m doing my MCA, and I bring two years of tech support and IT recruitment experience.',
 };
 
 export const NAV = [
@@ -202,15 +203,77 @@ export const PROJECTS = [
   }
 ];
 
-export const SKILLS = {
-  Frontend: ['JavaScript', 'TypeScript', 'React.js', 'Next.js (App Router)', 'HTML5', 'CSS3', 'Tailwind CSS', 'Vite'],
-  'Animation & 3D': ['GSAP + ScrollTrigger', 'Lenis smooth scroll', 'Motion', 'Three.js', 'React Three Fiber', 'Canvas API'],
-  'Backend & Data': ['Node.js', 'Django', 'Django REST Framework', 'REST APIs', 'SQL', 'PostgreSQL', 'pgvector', 'Redis', 'Celery', 'Stripe Billing', 'Supabase Auth/Storage', 'MySQL'],
-  'Applied AI': ['RAG', 'Embeddings', 'Semantic search', 'Prompt engineering', 'Ollama', 'Transformers.js'],
-  'Testing & Tools': ['Vitest', 'Playwright', 'pytest', 'Docker', 'Docker Compose', 'nginx', 'Git', 'GitHub', 'GitHub Actions', 'GitHub Pages', 'Netlify', 'Render', 'VS Code', 'Leaflet'],
-  'AI Dev Tools': ['OpenAI Codex', 'Claude Code', 'Cursor', 'ChatGPT'],
-  Also: ['Java', 'Python', 'pandas CSV analytics']
-};
+/* Tech stack shown as a logo grid. Logos live in public/icons/<icon>.svg.
+   brand: logo colour on hover (omit for black/white logos). group: used by the highlight filter. */
+export const TECH_GROUPS = ['Frontend', 'Backend', 'Data', 'AI', 'Cloud', 'Testing'];
+
+export const TECH = [
+  { name: 'JavaScript', icon: 'javascript', group: 'Frontend', brand: '#F7DF1E' },
+  { name: 'TypeScript', icon: 'typescript', group: 'Frontend', brand: '#3178C6' },
+  { name: 'React', icon: 'react', group: 'Frontend', brand: '#61DAFB' },
+  { name: 'Next.js', icon: 'nextdotjs', group: 'Frontend' },
+  { name: 'Tailwind CSS', icon: 'tailwindcss', group: 'Frontend', brand: '#06B6D4' },
+  { name: 'Vite', icon: 'vite', group: 'Frontend', brand: '#9135FF' },
+  { name: 'TanStack Query', icon: 'reactquery', group: 'Frontend', brand: '#FF4154' },
+  { name: 'HTML5', icon: 'html5', group: 'Frontend', brand: '#E34F26' },
+  { name: 'CSS', icon: 'css', group: 'Frontend', brand: '#663399' },
+  { name: 'GSAP', icon: 'gsap', group: 'Frontend', brand: '#0AE448' },
+  { name: 'Three.js', icon: 'threedotjs', group: 'Frontend' },
+  { name: 'Node.js', icon: 'nodedotjs', group: 'Backend', brand: '#5FA04E' },
+  { name: 'Express', icon: 'express', group: 'Backend' },
+  { name: 'Django', icon: 'django', group: 'Backend', brand: '#44B78B' },
+  { name: 'FastAPI', icon: 'fastapi', group: 'Backend', brand: '#009688' },
+  { name: 'Celery', icon: 'celery', group: 'Backend', brand: '#37814A' },
+  { name: 'Python', icon: 'python', group: 'Backend', brand: '#3776AB' },
+  { name: 'PostgreSQL', icon: 'postgresql', group: 'Data', brand: '#4169E1' },
+  { name: 'MongoDB', icon: 'mongodb', group: 'Data', brand: '#47A248' },
+  { name: 'Redis', icon: 'redis', group: 'Data', brand: '#FF4438' },
+  { name: 'Elasticsearch', icon: 'elasticsearch', group: 'Data', brand: '#00BFB3' },
+  { name: 'Neo4j', icon: 'neo4j', group: 'Data', brand: '#4581C3' },
+  { name: 'Qdrant', icon: 'qdrant', group: 'Data', brand: '#DC244C' },
+  { name: 'Supabase', icon: 'supabase', group: 'Data', brand: '#3FCF8E' },
+  { name: 'MySQL', icon: 'mysql', group: 'Data', brand: '#4479A1' },
+  { name: 'OpenAI', icon: 'openai', group: 'AI' },
+  { name: 'Codex', icon: 'codex', group: 'AI' },
+  { name: 'Claude Code', icon: 'claude', group: 'AI', brand: '#D97757' },
+  { name: 'Cursor', icon: 'cursor', group: 'AI' },
+  { name: 'LangGraph', icon: 'langgraph', group: 'AI', brand: '#7FC8FF' },
+  { name: 'Ollama', icon: 'ollama', group: 'AI' },
+  { name: 'Docker', icon: 'docker', group: 'Cloud', brand: '#2496ED' },
+  { name: 'AWS', icon: 'aws', group: 'Cloud', brand: '#FF9900' },
+  { name: 'GitHub Actions', icon: 'githubactions', group: 'Cloud', brand: '#2088FF' },
+  { name: 'nginx', icon: 'nginx', group: 'Cloud', brand: '#009639' },
+  { name: 'Vercel', icon: 'vercel', group: 'Cloud' },
+  { name: 'Render', icon: 'render', group: 'Cloud' },
+  { name: 'Netlify', icon: 'netlify', group: 'Cloud', brand: '#00C7B7' },
+  { name: 'Stripe', icon: 'stripe', group: 'Cloud', brand: '#635BFF' },
+  { name: 'Razorpay', icon: 'razorpay', group: 'Cloud', brand: '#3395FF' },
+  { name: 'pytest', icon: 'pytest', group: 'Testing', brand: '#0A9EDC' },
+  { name: 'Vitest', icon: 'vitest', group: 'Testing', brand: '#6DA13F' },
+  { name: 'Playwright', icon: 'playwright', group: 'Testing', brand: '#2EAD33' },
+  { name: 'Git', icon: 'git', group: 'Testing', brand: '#F03C2E' },
+  { name: 'GitHub', icon: 'github', group: 'Testing' }
+];
+
+export const TECH_ALSO = ['RAG', 'GraphRAG', 'Embeddings', 'Hybrid search', 'REST APIs', 'Prompt engineering', 'Java'];
+
+/* "Currently building" panel in the About section. */
+export const NOW_BUILDING = [
+  {
+    name: 'ShopSphere',
+    kind: 'Internship',
+    summary: 'Multi-vendor marketplace: one checkout across many stores, payments split and held until delivery, typo-tolerant search.',
+    stack: ['Node.js', 'Express', 'TypeScript', 'MongoDB', 'Elasticsearch', 'Razorpay'],
+    url: 'https://github.com/Adarsh619/Rout_Adarsh_Pradhan_Capstone_Projects/tree/main/FS-01'
+  },
+  {
+    name: 'PaperWeave',
+    kind: 'Personal',
+    summary: 'Agentic GraphRAG assistant that answers AI-research questions from a 500-paper knowledge graph, with citations.',
+    stack: ['FastAPI', 'LangGraph', 'Neo4j', 'Qdrant', 'Next.js'],
+    url: 'https://github.com/Adarsh619/paperweave'
+  }
+];
 
 export const EXPERIENCE = [
   {

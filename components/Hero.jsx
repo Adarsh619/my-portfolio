@@ -54,7 +54,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="hero-lead h-anim">
-            {PERSON.role}. I ship local RAG, vector search and polished interfaces, backed by real support and recruiting experience.
+            {PERSON.headline}
           </p>
           <div className="cta h-anim">
             <Magnetic><a className="btn" href="#work" onClick={(e) => { e.preventDefault(); go('work'); }}>View my work <ArrowRight size={16} /></a></Magnetic>

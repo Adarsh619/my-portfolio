@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SectionHeading, Reveal, Spotlight } from './ui';
 import ScrollReveal from './ScrollReveal';
-import { PERSON, STATS } from '@/data/portfolio';
+import { PERSON, STATS, NOW_BUILDING } from '@/data/portfolio';
 
 export default function About() {
   const ref = useRef(null);
@@ -32,15 +32,34 @@ export default function About() {
           <SectionHeading eyebrow="About" title="About me." />
           <ScrollReveal text={PERSON.bio} />
         </div>
-        <div className="stats">
-          {STATS.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.08}>
-              <Spotlight className="stat">
-                <b data-count={s.value}>0</b>
-                <span>{s.label}</span>
-              </Spotlight>
-            </Reveal>
-          ))}
+        <div>
+          <div className="stats">
+            {STATS.map((s, i) => (
+              <Reveal key={s.label} delay={i * 0.08}>
+                <Spotlight className="stat">
+                  <b data-count={s.value}>0</b>
+                  <span>{s.label}</span>
+                </Spotlight>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.3}>
+            <div className="card now">
+              <div className="now-head"><span className="now-pulse" aria-hidden="true" />Currently building</div>
+              {NOW_BUILDING.map((p) => (
+                <a key={p.name} className="now-item" href={p.url} target="_blank" rel="noopener noreferrer">
+                  <div className="now-row">
+                    <span className="now-name">{p.name}</span>
+                    <span className={`now-tag${p.kind === 'Internship' ? ' now-tag-work' : ''}`}>{p.kind}</span>
+                    <span className="now-arrow">Code →</span>
+                  </div>
+                  <p className="now-desc">{p.summary}</p>
+                  <div className="now-stack">{p.stack.map((t) => <span key={t}>{t}</span>)}</div>
+                </a>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
