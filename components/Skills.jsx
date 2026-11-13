@@ -4,7 +4,7 @@ import { TECH, TECH_GROUPS, TECH_ALSO, asset } from '@/data/portfolio';
 import { SectionHeading, Reveal } from './ui';
 
 /* Tech stack as one compact logo grid. The filter highlights a group without hiding anything,
-   so every logo stays visible at a glance. Logos are one colour and take their brand colour on hover. */
+   so every logo stays visible at a glance. Logos show in brand colour; black/white brands use the text colour. */
 export default function Skills() {
   const [group, setGroup] = useState('All');
   const filtered = group !== 'All';

@@ -257,7 +257,7 @@ kbd {
 .pb ul { margin: 18px 0 22px 18px; color: var(--muted); display: grid; gap: 10px; }
 
 /* ---------- Skills: logo grid ---------- */
-.stack-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+.stack-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
 .stack-head .title { margin-bottom: 0; }
 .stack-filters { display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 99px; background: var(--surface); }
 .stack-filters button { font-size: 13px; color: var(--muted); border-radius: 99px; padding: 6px 13px; transition: color 0.2s, background 0.2s; }
@@ -271,12 +271,12 @@ kbd {
 }
 .stack-tile span { font-size: 12px; line-height: 1.25; color: var(--muted); transition: color 0.25s; }
 .stack-ico {
-  width: 26px; height: 26px; background: var(--text); transition: background 0.25s;
+  width: 26px; height: 26px; background: var(--brand, var(--text)); transition: transform 0.25s;
   -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat;
 }
 .stack-tile:hover { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)); transform: translateY(-3px); }
 .stack-tile:hover span { color: var(--text); }
-.stack-tile:hover .stack-ico { background: var(--brand, var(--text)); }
+.stack-tile:hover .stack-ico { transform: scale(1.1); }
 .stack-grid.filtered .stack-tile:not(.on) { opacity: 0.18; }
 .stack-grid.filtered .stack-tile.on { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
 .stack-grid.filtered .stack-tile.on span { color: var(--text); }

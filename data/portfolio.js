@@ -53,8 +53,8 @@ export const HERO_QUICK = [
 
 export const STATS = [
   { value: 7, label: 'Projects built' },
-  { value: 4, label: 'Work roles' },
-  { value: 384, label: 'Vector size in my AI search' },
+  { value: 3, label: 'Live deployments' },
+  { value: 247, label: 'Automated tests in my SaaS platform' },
   { value: 2, label: 'Certifications' }
 ];
 
@@ -204,7 +204,7 @@ export const PROJECTS = [
 ];
 
 /* Tech stack shown as a logo grid. Logos live in public/icons/<icon>.svg.
-   brand: logo colour on hover (omit for black/white logos). group: used by the highlight filter. */
+   brand: logo colour (omit for black/white logos, which then follow the theme). group: used by the highlight filter. */
 export const TECH_GROUPS = ['Frontend', 'Backend', 'Data', 'AI', 'Cloud', 'Testing'];
 
 export const TECH = [
