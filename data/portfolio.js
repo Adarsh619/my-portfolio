@@ -12,13 +12,13 @@ export const PERSON = {
   name: 'Adarsh Pradhan R',
   initials: 'AP',
   role: 'Frontend and Full-Stack Developer',
-  headline: 'Full-stack developer building SaaS platforms, marketplaces and AI tools that cite their sources, with React, Next.js, Django and Node.js. Currently a Full-Stack Developer Intern at Nexvia Technologies.',
+  headline: 'Full-stack developer building SaaS platforms, marketplaces and AI tools that cite their sources, with React, Next.js, Django and Node.js.',
   location: 'Bengaluru, India',
   availability: 'Open to frontend & full-stack roles · Bengaluru',
   email: 'adarshpradhan77@gmail.com',
   linkedin: 'https://linkedin.com/in/adarshpradhan02',
   github: 'https://github.com/Adarsh619',
-  bio: 'At Nexvia Technologies, where I’m a Full-Stack Developer Intern, I built and deployed a Multi-Tenant SaaS Project Management Platform, and I’m now building ShopSphere, a multi-vendor marketplace. Outside work I’m building PaperWeave, an AI research assistant. Before this I shipped Groundwork, a PDF assistant that cites its pages, Aizen Map, a Bengaluru discovery app live on Netlify, and this portfolio. I have a B.Tech in Computer Science, I’m doing my MCA, and I bring two years of tech support and IT recruitment experience.',
+  bio: 'I’m a Full-Stack Developer Intern at Nexvia Technologies. There I built and deployed a Multi-Tenant SaaS Project Management Platform, and I’m now building ShopSphere, a multi-vendor marketplace. Outside work I’m building PaperWeave, an AI research assistant. Earlier projects include Groundwork, a PDF assistant that cites its pages, Aizen Map, a Bengaluru discovery app live on Netlify, and this portfolio. I have a B.Tech in Computer Science, I’m pursuing an MCA, and I bring two years of experience in tech support and IT recruitment.',
 };
 
 export const NAV = [

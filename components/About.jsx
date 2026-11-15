@@ -29,7 +29,7 @@ export default function About() {
     <section id="about" className="section" ref={ref}>
       <div className="about-grid">
         <div>
-          <SectionHeading eyebrow="About" title="About me." />
+          <SectionHeading title="Who I am." />
           <ScrollReveal text={PERSON.bio} />
         </div>
         <div>

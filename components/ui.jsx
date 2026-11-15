@@ -27,7 +27,7 @@ export function SectionHeading({ eyebrow, title }) {
 
   return (
     <div ref={ref}>
-      <p className="eyebrow"><DecryptedText text={eyebrow} /></p>
+      {eyebrow && <p className="eyebrow"><DecryptedText text={eyebrow} /></p>}
       <h2 className="title">
         {title.split(' ').map((word, i) => (
           <span className="word" key={i}>
