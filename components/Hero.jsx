@@ -40,7 +40,7 @@ export default function Hero() {
       <div className="hero-grid">
         <div>
           <span className="status h-anim"><i className="dot" /> <span className="shiny">{PERSON.availability}</span></span>
-          <h1 className="hero-title" aria-label="Hi, I’m Adarsh. I build RAG apps, React UIs, full-stack apps, websites and dashboards.">
+          <h1 className="hero-title" aria-label="Hi, I’m Adarsh. I build SaaS platforms, marketplaces, AI tools and full-stack apps.">
             {HERO_WORDS.map(([word, cls], i) => (
               <Fragment key={i}>
                 <span className="word">

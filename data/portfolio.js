@@ -14,7 +14,7 @@ export const PERSON = {
   role: 'Frontend and Full-Stack Developer',
   headline: 'Full-stack developer building SaaS platforms, marketplaces and AI tools that cite their sources, with React, Next.js, Django and Node.js. I take products from database design to deployment, with tested code and clean, fast interfaces.',
   location: 'Bengaluru, India',
-  availability: 'Open to frontend & full-stack roles · Bengaluru',
+  availability: 'Open to full-stack developer roles · Bengaluru',
   email: 'adarshpradhan77@gmail.com',
   linkedin: 'https://linkedin.com/in/adarshpradhan02',
   github: 'https://github.com/Adarsh619',
@@ -34,17 +34,17 @@ export const HERO_WORDS = [
   ['Hi,'], ['I’m'], ['Adarsh.', 'accent'], ['I'], ['build']
 ];
 
-export const HERO_ROTATE = ['RAG apps.', 'SaaS platforms.', 'React UIs.', 'full-stack apps.', 'websites.', 'dashboards.'];
+export const HERO_ROTATE = ['SaaS platforms.', 'marketplaces.', 'AI tools.', 'full-stack apps.'];
 
 export const HERO_CHIPS = [
   { label: 'React', pos: 'chip-1' },
   { label: 'Next.js', pos: 'chip-2' },
   { label: 'TypeScript', pos: 'chip-3' },
-  { label: 'pgvector', pos: 'chip-4' }
+  { label: 'Node.js', pos: 'chip-4' }
 ];
 
 export const HERO_QUICK = [
-  { label: 'Best project', title: 'Groundwork RAG', target: 'work' },
+  { label: 'Best project', title: 'Multi-tenant SaaS', target: 'work' },
   { label: 'Stack', title: 'Skills at a glance', target: 'skills' },
   { label: 'Background', title: 'Experience', target: 'experience' },
   { label: 'Documents', title: 'Resume', target: 'resume' },
