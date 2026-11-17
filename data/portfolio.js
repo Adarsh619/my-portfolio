@@ -18,7 +18,7 @@ export const PERSON = {
   email: 'adarshpradhan77@gmail.com',
   linkedin: 'https://linkedin.com/in/adarshpradhan02',
   github: 'https://github.com/Adarsh619',
-  bio: 'I’m a Full-Stack Developer Intern at Nexvia Technologies. There I built and deployed a Multi-Tenant SaaS Project Management Platform, and I’m now building ShopSphere, a multi-vendor marketplace. Outside work I’m building PaperWeave, an AI research assistant. Earlier projects include Groundwork, a PDF assistant that cites its pages, Aizen Map, a Bengaluru discovery app live on Netlify, and this portfolio. I have a B.Tech in Computer Science, I’m pursuing an MCA, and I bring two years of experience in tech support and IT recruitment.',
+  bio: 'I’m a Full-Stack Developer Intern at Nexvia Technologies. There I built and deployed a Multi-Tenant SaaS Project Management Platform and ShopSphere, a multi-vendor marketplace. Outside work I’m building PaperWeave, an AI research assistant. Earlier projects include Groundwork, a PDF assistant that cites its pages, Aizen Map, a Bengaluru discovery app live on Netlify, and this portfolio. I have a B.Tech in Computer Science, I’m pursuing an MCA, and I bring two years of experience in tech support and IT recruitment.',
 };
 
 export const NAV = [
@@ -52,9 +52,9 @@ export const HERO_QUICK = [
 ];
 
 export const STATS = [
-  { value: 7, label: 'Projects built' },
-  { value: 3, label: 'Live deployments' },
-  { value: 247, label: 'Automated tests in my SaaS platform' },
+  { value: 8, label: 'Projects built' },
+  { value: 4, label: 'Live deployments' },
+  { value: 513, label: 'Automated tests in my internship projects' },
   { value: 2, label: 'Certifications' }
 ];
 
@@ -82,6 +82,27 @@ export const PROJECTS = [
     images: ['/projects/taskflow-1.png', '/projects/taskflow-2.png'],
     liveUrl: 'https://taskflow-fs04.onrender.com',
     codeUrl: 'https://github.com/Adarsh619/Rout_Adarsh_Pradhan_Capstone_Projects/tree/main/FS-04'
+  },
+  {
+    slug: 'shopsphere',
+    name: 'Multi-Vendor E-Commerce Marketplace',
+    title: 'ShopSphere: many sellers, one cart, one checkout',
+    tagline: 'An Amazon-style marketplace where shoppers buy from several stores in one checkout and every payment is split between the sellers.',
+    year: 'Internship · Live',
+    tags: ['Node.js', 'TypeScript', 'PostgreSQL', 'Elasticsearch', 'Prisma', 'Redis', 'Razorpay', 'AWS'],
+    problem: 'Online marketplaces have to take one payment for items from many sellers, split it correctly, and pay each seller only once their part is delivered.',
+    solution: 'My second internship project at Nexvia Technologies. Shoppers fill one cart from several stores and check out once; each store packs and ships its own part, and its share of the payment is held until delivery. Built as a typed Express API with PostgreSQL, Redis job queues and Elasticsearch search, live on Vercel and AWS.',
+    highlights: [
+      'One checkout across stores, with 15-minute stock holds and Razorpay payments (test mode)',
+      'A split-and-escrow ledger: each store’s share is held until delivery, with refunds when a part is cancelled',
+      'Typo-tolerant Elasticsearch search with filters across 214 products from 5 stores',
+      'Direct-to-S3 image uploads, coupons, per-store invoice PDFs, verified reviews and admin analytics',
+      '201 backend tests (93.5% coverage) and 65 frontend tests; load-tested live at 5,403 requests with 0 errors',
+      'API, worker and databases on AWS EC2, frontend on Vercel, CI on GitHub Actions'
+    ],
+    images: ['/projects/shopsphere-1.png'],
+    liveUrl: 'https://shopsphere-fs01.vercel.app',
+    codeUrl: 'https://github.com/Adarsh619/Rout_Adarsh_Pradhan_Capstone_Projects/tree/main/FS-01'
   },
   {
     slug: 'groundwork',
@@ -227,6 +248,7 @@ export const TECH = [
   { name: 'Python', icon: 'python', group: 'Backend', brand: '#3776AB' },
   { name: 'PostgreSQL', icon: 'postgresql', group: 'Data', brand: '#4169E1' },
   { name: 'MongoDB', icon: 'mongodb', group: 'Data', brand: '#47A248' },
+  { name: 'Prisma', icon: 'prisma', group: 'Data' },
   { name: 'Redis', icon: 'redis', group: 'Data', brand: '#FF4438' },
   { name: 'Elasticsearch', icon: 'elasticsearch', group: 'Data', brand: '#00BFB3' },
   { name: 'Neo4j', icon: 'neo4j', group: 'Data', brand: '#4581C3' },
@@ -259,13 +281,6 @@ export const TECH_ALSO = ['RAG', 'GraphRAG', 'Embeddings', 'Hybrid search', 'RES
 
 /* "Currently building" panel in the About section. */
 export const NOW_BUILDING = [
-  {
-    name: 'ShopSphere',
-    kind: 'Internship',
-    summary: 'Multi-vendor marketplace: one checkout across many stores, payments split and held until delivery, typo-tolerant search.',
-    stack: ['Node.js', 'Express', 'TypeScript', 'MongoDB', 'Elasticsearch', 'Razorpay'],
-    url: 'https://github.com/Adarsh619/Rout_Adarsh_Pradhan_Capstone_Projects/tree/main/FS-01'
-  },
   {
     name: 'PaperWeave',
     kind: 'Personal',
