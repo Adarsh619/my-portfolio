@@ -296,7 +296,7 @@ export const EXPERIENCE = [
     location: 'Bengaluru',
     role: 'Full-Stack Developer Intern',
     company: 'Nexvia Technologies',
-    summary: 'Building full-stack features end to end. Shipped a Multi-Tenant SaaS Project Management Platform (TaskFlow) with Django, React, Celery and Stripe billing, with CI/CD and a live deployment.'
+    summary: 'Building full-stack features end to end. Shipped two live platforms: a Multi-Tenant SaaS Project Management Platform (TaskFlow) with Django, React, Celery and Stripe billing, and ShopSphere, a multi-vendor marketplace with split payments, built on Node.js, PostgreSQL and Elasticsearch. Both have CI/CD pipelines and 513 automated tests between them.'
   },
   {
     period: 'Jul 2026 – Sep 2026',
