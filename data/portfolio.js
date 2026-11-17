@@ -12,7 +12,7 @@ export const PERSON = {
   name: 'Adarsh Pradhan R',
   initials: 'AP',
   role: 'Frontend and Full-Stack Developer',
-  headline: 'Full-stack developer building SaaS platforms, marketplaces and AI tools that cite their sources, with React, Next.js, Django and Node.js. I take products from database design to deployment, with tested code and clean, fast interfaces.',
+  headline: 'Full-stack developer building SaaS platforms, marketplaces and AI tools that cite their sources, with TypeScript, React, Next.js, Node.js and PostgreSQL. I take products from database design to deployment, with tested code and clean, fast interfaces.',
   location: 'Bengaluru, India',
   availability: 'Open to full-stack developer roles · Bengaluru',
   email: 'adarshpradhan77@gmail.com',
