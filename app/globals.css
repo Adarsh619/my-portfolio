@@ -687,3 +687,8 @@ body { transition: background-color 0.6s ease, color 0.6s ease; }
 .bd-marker-hollow { fill: var(--bg); stroke: var(--accent); stroke-width: 0.35; }
 .bd-tick { stroke: var(--muted); stroke-opacity: 0.6; stroke-width: 0.3; stroke-linecap: round; }
 
+
+/* Very small phones (under 360px): shrink the hero heading so the longest rotating word fits on one line. */
+@media (max-width: 359px) {
+  .hero-title { font-size: 34px; }
+}

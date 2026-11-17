@@ -12,7 +12,7 @@ export const PERSON = {
   name: 'Adarsh Pradhan R',
   initials: 'AP',
   role: 'Frontend and Full-Stack Developer',
-  headline: 'Full-stack developer building SaaS platforms, marketplaces and AI tools that cite their sources, with TypeScript, React, Next.js, Node.js and PostgreSQL. I take products from database design to deployment, with tested code and clean, fast interfaces.',
+  headline: 'Full-stack developer building SaaS platforms, marketplaces and AI-powered apps that cite their sources, with TypeScript, React, Next.js, Node.js and PostgreSQL. I take products from database design to deployment, with tested code and clean, fast interfaces.',
   location: 'Bengaluru, India',
   availability: 'Open to full-stack developer roles · Bengaluru',
   email: 'adarshpradhan77@gmail.com',
@@ -34,7 +34,7 @@ export const HERO_WORDS = [
   ['Hi,'], ['I’m'], ['Adarsh.', 'accent'], ['I'], ['build']
 ];
 
-export const HERO_ROTATE = ['SaaS platforms.', 'marketplaces.', 'AI tools.', 'full-stack apps.'];
+export const HERO_ROTATE = ['SaaS platforms.', 'marketplaces.', 'AI-powered apps.', 'full-stack apps.'];
 
 export const HERO_CHIPS = [
   { label: 'React', pos: 'chip-1' },
