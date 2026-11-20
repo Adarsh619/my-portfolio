@@ -54,7 +54,7 @@ export const HERO_QUICK = [
 export const STATS = [
   { value: 8, label: 'Projects built' },
   { value: 4, label: 'Live deployments' },
-  { value: 513, label: 'Automated tests in my internship projects' },
+  { value: 526, label: 'Automated tests in my internship projects' },
   { value: 2, label: 'Certifications' }
 ];
 
@@ -67,7 +67,7 @@ export const PROJECTS = [
     title: 'TaskFlow: a Jira-style workspace for every company',
     tagline: 'A Jira-style workspace where every company gets its own boards, sprints and billing, kept fully separate from every other company.',
     year: 'Internship · Live',
-    tags: ['Django', 'React', 'PostgreSQL', 'Celery', 'Redis', 'Stripe', 'Docker'],
+    tags: ['Node.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'React', 'BullMQ', 'Redis', 'Stripe', 'Docker'],
     problem: 'Teams need one place to plan and track work. A SaaS tool also has to keep each company’s data completely separate, give each person only the access their role allows, and charge for plans without double billing.',
     solution: 'My first internship project at Nexvia Technologies. Each company signs up and gets its own workspace with projects, drag-and-drop Kanban boards, sprints, custom workflows, an audit log, webhooks and Stripe subscription billing. Every request is checked against the company it belongs to, so one company can’t reach another’s data, even by guessing IDs. Try it with the demo login shown on the sign-in page.',
     highlights: [
@@ -75,9 +75,10 @@ export const PROJECTS = [
       'Four roles per workspace (viewer, member, admin, owner), with pages that explain why an action isn’t allowed',
       'Drag-and-drop Kanban with optimistic updates, custom workflows whose allowed transitions are enforced by the API, and sprints',
       'Stripe Checkout and Customer Portal with signed webhooks that are safe against duplicate or late events, plus plan limits',
-      'Celery and Redis jobs for HMAC-signed webhooks with retries and an SSRF guard, email reminders and weekly reports',
+      'BullMQ and Redis jobs for HMAC-signed webhooks with retries and an SSRF guard, email reminders and weekly reports',
       'Append-only audit log with field-level diffs and CSV export',
-      '185 backend tests at 96% coverage and 62 frontend tests. The CI/CD pipeline smoke-tests the full Docker stack, publishes images and deploys every tested push to Render'
+      'Version 2.0 migrated the backend from Django/Python to Node.js, TypeScript and Prisma, keeping the same API and features',
+      '197 backend tests at 96% coverage and 63 frontend tests. The CI/CD pipeline smoke-tests the full Docker stack, publishes images and deploys every tested push to Render'
     ],
     images: ['/projects/taskflow-1.png', '/projects/taskflow-2.png'],
     liveUrl: 'https://taskflow-fs04.onrender.com',
@@ -296,7 +297,7 @@ export const EXPERIENCE = [
     location: 'Bengaluru',
     role: 'Full-Stack Developer Intern',
     company: 'Nexvia Technologies',
-    summary: 'Building full-stack features end to end. Shipped two live platforms: a Multi-Tenant SaaS Project Management Platform (TaskFlow) with Django, React, Celery and Stripe billing, and ShopSphere, a multi-vendor marketplace with split payments, built on Node.js, PostgreSQL and Elasticsearch. Both have CI/CD pipelines and 513 automated tests between them.'
+    summary: 'Building full-stack features end to end. Shipped two live platforms: a Multi-Tenant SaaS Project Management Platform (TaskFlow) with Node.js, TypeScript, React and Stripe billing, and ShopSphere, a multi-vendor marketplace with split payments, built on Node.js, PostgreSQL and Elasticsearch. Both have CI/CD pipelines and 526 automated tests between them.'
   },
   {
     period: 'Jul 2026 – Sep 2026',
